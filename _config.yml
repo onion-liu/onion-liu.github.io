@@ -29,5 +29,5 @@ favicon: http://7nj0p2.com1.z0.glb.clouddn.com/gh-avatar.jpg
 #  url: yansu.org
 
 # disqus 设置
-#disqus:
-#  shortname: suyan-zh
+disqus:
+  shortname: onion-liu
