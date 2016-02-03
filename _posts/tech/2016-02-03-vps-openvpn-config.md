@@ -11,6 +11,7 @@ description: VPS OpenVPN安装配置教程(基于Debian/Ubuntu)
 ```
 apt-get install openvpn udev lzop
 ```
+
 ## 2、使用easy-rsa生成服务端证书
 
 ### 将OpenVPN所需的配置文件复制到/etc/openvpn/下面：
@@ -18,6 +19,7 @@ apt-get install openvpn udev lzop
 ```
 cp -r /usr/share/doc/openvpn/examples/easy-rsa/ /etc/openvpn/
 ```
+
 ### 生产CA证书：
 
 ```
@@ -26,6 +28,7 @@ source vars
 ./clean-all
 ./build-ca
 ```
+
 ./build-ca时会提示输入一些信息，可以都直接回车按默认信息。
 
 ### 生成服务器端证书和密钥，server为名字可以自定义：
@@ -33,6 +36,7 @@ source vars
 ```
 ./build-key-server server
 ```
+
 此步也是会提示输入一些信息，前面的信息直接回车按默认信息，提示Sign the certificate? [y/n]:时输入y，提示1 out of 1 certificate requests certified, commit? [y/n] 也是输入y。
 
 ### 生成客户端证书和密钥，client为名字可以自定义，注意前面的./build-key-server与./build-key client输入的名字不能相同：
@@ -40,6 +44,7 @@ source vars
 ```
 ./build-key client
 ```
+
 前面的信息直接回车按默认信息，提示Sign the certificate? [y/n]:时输入y，提示1 out of 1 certificate requests certified, commit? [y/n] 也是输入y
 
 生成其他的客户端就是执行：./build-key 你想添加的客户端的名字。
@@ -51,6 +56,7 @@ source vars
 ```
 ./build-dh
 ```
+
 ## 3、配置OpenVPN服务
 
 ### 编辑/etc/openvpn/server.conf 文件，如果没有可以创建一个，加入下面的内容：
@@ -103,6 +109,7 @@ apt-get install iptables   #如果已经安装可以跳过
 iptables -t nat -A POSTROUTING -s 10.168.0.0/16 -o eth0 -j MASQUERADE
 iptables-save > /etc/iptables.rules
 ```
+
 上面的eth0要替换为你的网卡标识，可以通过ifconfig查看。
 
 在/etc/network/if-up.d/目录下创建iptables文件，内容如下：
@@ -111,11 +118,12 @@ iptables-save > /etc/iptables.rules
 #!/bin/sh
 iptables-restore < /etc/iptables.rules
 ```
+
 给脚本添加执行权限：
 ```
-
 chmod +x /etc/network/if-up.d/iptables
 ```
+
 修改/etc/sysctl.conf的内容为：
 
 ```
@@ -125,17 +133,20 @@ net.ipv4.conf.default.send_redirects = 0
 net.ipv4.conf.all.accept_redirects = 0
 net.ipv4.conf.default.accept_redirects = 0
 ```
+
 重新载入/etc/sysctl.conf使其生效，执行如下命令：
 
 ```
 sysctl -p
 ```
+
 ### 重启OpenVPN及网络：
 
 ```
 /etc/init.d/openvpn restart
 /etc/init.d/networking restart
 ```
+
 ## 4、安装配置OpenVPN客户端
 
 ### 下载客户端
@@ -176,6 +187,7 @@ mute 20
 route-method exe
 route-delay 2
 ```
+
 ## 5、OpenVPN客户端连接测试：
 
 运行OpenVPN GUI，会在屏幕右下角的系统托盘区，右击该图标，会在菜单中出现我们添加的服务器，点击Connect，OpenVPN客户端就会开通链接OpenVPN服务器，过一会儿，OpenVPN图标变成绿色就是链接成功了。
