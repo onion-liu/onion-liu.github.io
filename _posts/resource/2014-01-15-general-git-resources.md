@@ -15,6 +15,14 @@ git clone https://github.com/php/php-src.git
 git clone --depth=1 https://github.com/php/php-src.git # 只抓取最近的一次 commit
 ```
 
+### git上传三连击
+
+```bash
+$ git add .                                       # 这个点不要忘了！  
+$ git commit -m "test log"                        # 上传日志
+$ git push origin master                          # 推送到GitHub仓库
+```
+
 ## 历史管理
 
 ### 查看历史
