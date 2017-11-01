@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Numpy笔记
-category: 技术
+category: 深度学习
 tags: 深度学习
 keywords: Numpy
 ---
