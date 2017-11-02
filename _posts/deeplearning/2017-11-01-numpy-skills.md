@@ -21,3 +21,10 @@ A = np.zeros((2,3))
 B = np.zeros((2,3))
 temp = A*B # 直接用*号
 ```
+
+### 将一元矩阵转化为实数
+
+```python
+A = np.array([[1]])
+A_num = np.squeeze(A) # 输出A_num = 1
+```
