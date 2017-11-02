@@ -6,7 +6,6 @@ tags: 深度学习
 keywords: Numpy
 ---
 
-## 库管理
 
 ### 生成m行n列零矩阵
 
