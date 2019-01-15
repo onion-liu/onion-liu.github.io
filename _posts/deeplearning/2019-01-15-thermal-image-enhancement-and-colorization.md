@@ -6,11 +6,10 @@ tags: 深度学习
 keywords: infrared image, enhancement, colorization
 ---
 
-# 红外图像增强/彩色化笔记   
 ## 1610_TEN（IROS2016）: 红外图像超分辨率_from KAIST
 《Thermal Image Enhancement using Convolutional Neural Network》 Yukyung Choi, Namil Kim, Soonmin Hwang and In So kweon  
-项目地址: https://sites.google.com/site/ykchoicv/ten)  
-pytorch复现代码: https://github.com/ninadakolekar/ten
+项目地址: [https://sites.google.com/site/ykchoicv/ten](https://sites.google.com/site/ykchoicv/ten)  
+pytorch复现代码: [https://github.com/ninadakolekar/ten](https://github.com/ninadakolekar/ten)
 
 ![TEN](http://markdown-ydao.oss-cn-beijing.aliyuncs.com/19-1-10/98876457.jpg)
 - 用4层无下采样的卷积层就完成了图像超分辨率
@@ -39,8 +38,8 @@ class ten(nn.Module):
 ```
 
 ## 1709_TIECNN（IEEE）：韩国延世大学基于CNN的热红外图像增强
-《Brightness-Based Convolutional Neural Network for Thermal Image Enhancement》 KYUNGJAE LEE, JUNHYEOP LEE, JOOSUNG LEE, SANGWON HWANG, AND SANGYOUN LEE
-项目地址:  https://sites.google.com/view/kjaelee/tiecnn (有caffe版的模型训练结果)   
+《Brightness-Based Convolutional Neural Network for Thermal Image Enhancement》 KYUNGJAE LEE, JUNHYEOP LEE, JOOSUNG LEE, SANGWON HWANG, AND SANGYOUN LEE  
+项目地址:  [https://sites.google.com/view/kjaelee/tiecnn](https://sites.google.com/view/kjaelee/tiecnn) (有caffe版的模型训练结果)   
 - 通过残差学习，只训练残差，学习HQ和LQ图像之间的高频信息
 - 基于RGB图像的brightness domain进行预训练，对于thermal image彩色化是最有效，而非gray domain
     - lightness (L in HSL)
@@ -61,15 +60,14 @@ class ten(nn.Module):
 - 两个判别器：   
   -  the **global discriminator** distinguishes translated VI images from real ones
   -  the **ROI discriminator** aims to distinguish the ROIs between translated VI image and real ones
-
 - 在CycleGAN的基础上进行的改进
 - 加入了ROI focal loss来避免错误的映射（如：原图没有森林的地方生成了森林）
 
-**！！！！用的数据集打不开啊打不开！！！！！** https://www.sensiac.org/external/products/list_databases
+**！！！！用的数据集打不开啊打不开！！！！！** [https://www.sensiac.org/external/products/list_databases](https://www.sensiac.org/external/products/list_databases)
 
 ## 1811_IE-CGAN（Neurocomputing）：南理工的单张红外图像对比度增强ConditionalGAN
-《Single infrared image enhancement using a deep convolutional neural network》 Xiaodong Kuang, Xiubao Sui, Yuan Liu, Qian Chen, Guohua Gu
-github:  https://github.com/Kuangxd/IE-CGAN (只有torch版本的测试模型，没有模型结构和训练方法)
+《Single infrared image enhancement using a deep convolutional neural network》 Xiaodong Kuang, Xiubao Sui, Yuan Liu, Qian Chen, Guohua Gu  
+github:  [https://github.com/Kuangxd/IE-CGAN](https://github.com/Kuangxd/IE-CGAN) (只有torch版本的测试模型，没有模型结构和训练方法)
 
 ![IE-CGAN](http://markdown-ydao.oss-cn-beijing.aliyuncs.com/19-1-10/9567948.jpg)   
 
