@@ -4,12 +4,12 @@ layout: default
 
 <!-- about.html -->
       <div class="post">
-        <header class="post-header">
+        <!-- <header class="post-header">
           <h1 class="post-title">
            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
           </h1>
           <p class="desc">{{ page.subtitle }}</p>
-        </header>
+        </header> -->
 
         <article>
           {% if page.profile -%}
@@ -18,7 +18,7 @@ layout: default
               {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
               {% include figure.html 
               path=profile_image_path 
-              class="img-fluid z-dept-1 rounded"
+              class="img-fluid z-dept-1 rounded-circle"
               alt=page.profile.image -%}
             {% endif -%}
             {%- if page.profile.address %}
@@ -28,7 +28,10 @@ layout: default
             {%- endif %}
           </div>
           {%- endif %}
-
+          <h1 class="post-title">
+           {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+          </h1>
+          <p class="desc">{{ page.subtitle }}</p>
           <div class="clearfix">
             {{ content }}
           </div>
