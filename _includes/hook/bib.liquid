@@ -1,0 +1,7 @@
+{% comment %}
+  Site hook called by al_folio_core's _layouts/bib.liquid before the venue line is rendered.
+  Appends the venue abbreviation in bold, e.g. "Advances in Neural Information Processing Systems (NeurIPS), 2021".
+{% endcomment %}
+{% if entry.abbr %}
+  {% capture entrytype %}{{ entrytype }} (<b>{{ entry.abbr }}</b>){% endcapture %}
+{% endif %}
